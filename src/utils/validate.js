@@ -11,3 +11,12 @@ export const validateData = (email, password) => {
 
   return null;
 };
+
+export const getAuthenticationErrorMessage = (errorCode, errorMessage) => {
+  switch (errorCode) {
+    case "auth/invalid-credential":
+      return "Invalid login credentials";
+    default:
+      return errorMessage;
+  }
+};

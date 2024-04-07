@@ -1,9 +1,16 @@
 import { useState, useRef } from "react";
-import { validateData } from "../utils/validate";
+import { getAuthenticationErrorMessage, validateData } from "../utils/validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [validationErrorMessage, setValidationErrorMessage] = useState(null);
+  const [authenticationErrorMessage, setAuthenticationErrorMessage] =
+    useState(null);
 
   const name = useRef(null);
   const email = useRef(null);
@@ -21,6 +28,46 @@ const Login = () => {
       password.current.value
     );
     setValidationErrorMessage(errorMessage);
+
+    if (errorMessage) return;
+
+    if (!isSignInForm) {
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setAuthenticationErrorMessage(
+            getAuthenticationErrorMessage(errorCode, errorMessage)
+          );
+        });
+    } else {
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setAuthenticationErrorMessage(
+            getAuthenticationErrorMessage(errorCode, errorMessage)
+          );
+        });
+    }
   };
 
   return (
@@ -50,7 +97,9 @@ const Login = () => {
             placeholder="Password"
             ref={password}
           />
-          <p className="text-red-500 text-sm">{validationErrorMessage}</p>
+          <p className="text-red-500 text-sm">
+            {authenticationErrorMessage || validationErrorMessage}
+          </p>
           <button
             className="w-full p-4 mt-6 mb-4 text-white bg-red-600 rounded-[4px] font-medium"
             type="submit"
