@@ -1,8 +1,10 @@
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 import Login from "./components/Login";
 import Browse from "./components/Browse";
 import Header from "./components/Header";
 import netflixBgImage from "./images/netflix-background.jpg";
+import appStore from "./utils/appStore";
 
 function App() {
   const AppLayout = () => {
@@ -36,7 +38,11 @@ function App() {
     },
   ]);
 
-  return <RouterProvider router={appRouter} />;
+  return (
+    <Provider store={appStore}>
+      <RouterProvider router={appRouter} />
+    </Provider>
+  );
 }
 
 export default App;
