@@ -352,3 +352,42 @@ export const NOW_PLAYING_RESULTS = [
     vote_count: 3002,
   },
 ];
+
+export const VIDEO_TRAILER = [
+  {
+    iso_639_1: "en",
+    iso_3166_1: "US",
+    name: "Official Trailer 3",
+    key: "hWbfohXIdEU",
+    site: "YouTube",
+    size: 1080,
+    type: "Trailer",
+    official: true,
+    published_at: "2023-11-14T13:28:48.000Z",
+    id: "6555150253866e00ff06b009",
+  },
+  {
+    iso_639_1: "en",
+    iso_3166_1: "US",
+    name: "Official Trailer 2",
+    key: "UkHxhPGpRuA",
+    site: "YouTube",
+    size: 1080,
+    type: "Trailer",
+    official: true,
+    published_at: "2023-10-14T23:27:40.000Z",
+    id: "652b3fbc0cb33516f5c97de1",
+  },
+  {
+    iso_639_1: "en",
+    iso_3166_1: "US",
+    name: "Official Trailer",
+    key: "cQfo0HJhCnE",
+    site: "YouTube",
+    size: 1080,
+    type: "Trailer",
+    official: true,
+    published_at: "2023-07-18T15:00:21.000Z",
+    id: "64b6b54f78570e00c6d60c53",
+  },
+];
