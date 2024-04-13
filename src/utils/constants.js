@@ -391,3 +391,5 @@ export const VIDEO_TRAILER = [
     id: "64b6b54f78570e00c6d60c53",
   },
 ];
+
+export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
