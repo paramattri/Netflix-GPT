@@ -8,7 +8,7 @@ import appStore from "./utils/appStore";
 function App() {
   const AppLayout = () => {
     return (
-      <div className="relative w-full h-screen  ">
+      <div className="relative w-full h-screen bg-black -z-100">
         <Header />
         <Outlet />
       </div>

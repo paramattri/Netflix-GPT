@@ -7,11 +7,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import netflixBgImage from "../images/netflix-background.jpg";
 import { addUser, removeUser } from "../utils/userSlice";
+import { toggleGPTSearchView } from "../utils/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
+  const showGPTSearchView = useSelector((store) => store.gpt.showGPTSearch);
 
   const handleSignOut = () => {
     signOut(auth)
@@ -19,6 +21,10 @@ const Header = () => {
       .catch((error) => {
         console.log(error);
       });
+  };
+
+  const handleGPTSearchClick = () => {
+    dispatch(toggleGPTSearchView());
   };
 
   useEffect(() => {
@@ -38,7 +44,7 @@ const Header = () => {
 
   return (
     <>
-      {!user && (
+      {(!user || showGPTSearchView) && (
         <img
           className="absolute w-full h-full object-cover opacity-50"
           src={netflixBgImage}
@@ -53,6 +59,12 @@ const Header = () => {
         />
         {user && (
           <div className="flex items-center gap-4">
+            <button
+              className="text-red-600 text-lg font-semibold"
+              onClick={handleGPTSearchClick}
+            >
+              GPT Search
+            </button>
             <img className="w-11 h-11 " src={user.photoURL} alt="user-icon" />
             <button
               className="text-red-600 mr-8 text-lg font-bold"
