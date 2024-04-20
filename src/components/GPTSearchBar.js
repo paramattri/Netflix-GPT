@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import openai from "../utils/openai";
-import API_OPTIONS from "../utils/constants";
+import { API_OPTIONS } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { addGPTMovieResults } from "../utils/gptSlice";
 
@@ -20,13 +20,11 @@ const GPTSearchBar = () => {
 
   const handleGPTSearch = async () => {
     const gptQuery = `Act as a Movie Recommendation system and suggest some movies for the query ${searchText.current.value}. Only give me names of 5 movies, comma separated like the example result given ahead. Example Result: MovieName1, MovieName2, MovieName3, MovieName4, MovieName5`;
-
     const gptSearchResults = await openai.chat.completions.create({
       messages: [{ role: "user", content: gptQuery }],
       model: "gpt-3.5-turbo",
     });
 
-    console.log(gptSearchResults.choices?.[0]?.message?.content);
     const gptRecommendedMovies =
       gptSearchResults.choices?.[0]?.message?.content.split(",");
 
@@ -39,7 +37,7 @@ const GPTSearchBar = () => {
   };
 
   return (
-    <div className="bg-black/75 h-36 flex items-center rounded-md">
+    <div className=" h-36 flex items-center rounded-md">
       <form
         className="flex justify-around items-center w-full"
         onSubmit={(e) => e.preventDefault()}

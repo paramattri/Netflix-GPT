@@ -94,20 +94,20 @@ const Login = () => {
         <form className="" onSubmit={handleFormSubmit}>
           {!isSignInForm && (
             <input
-              className="w-full px-5 pt-4 h-[50px] rounded-[4px] mb-4 bg-neutral-700 text-white focus:outline-none"
+              className="w-full px-5 h-[50px] rounded-[4px] mb-4 bg-neutral-700 text-white focus:outline-none"
               type="text"
               placeholder="Full Name"
               ref={name}
             />
           )}
           <input
-            className="w-full px-5 pt-4 h-[50px] rounded-[4px] mb-4 bg-neutral-700 text-white focus:outline-none"
+            className="w-full px-5 h-[50px] rounded-[4px] mb-4 bg-neutral-700 text-white focus:outline-none"
             type="text"
             placeholder="Email"
             ref={email}
           />
           <input
-            className="w-full px-5 pt-4 h-[50px] rounded-[4px] mb-4 bg-neutral-700 text-white focus:outline-none"
+            className="w-full px-5 h-[50px] rounded-[4px] mb-4 bg-neutral-700 text-white focus:outline-none"
             type="password"
             placeholder="Password"
             ref={password}

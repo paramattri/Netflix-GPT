@@ -9,7 +9,7 @@ const GPTMovieSuggestions = () => {
   if (!gptRecommendedMovies) return null;
 
   return (
-    <div>
+    <div className="pr-2">
       <div>
         {gptRecommendedMovies.map((movieName, index) => (
           <MovieList

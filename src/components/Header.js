@@ -46,12 +46,12 @@ const Header = () => {
     <>
       {(!user || showGPTSearchView) && (
         <img
-          className="absolute w-full h-full object-cover opacity-50"
+          className="fixed w-full h-full object-cover"
           src={netflixBgImage}
           alt="Background"
         />
       )}
-      <div className="px-3 pt-1 z-10 relative flex justify-between items-center">
+      <div className="px-3 pt-1 z-10 relative flex justify-between items-center bg-gradient-to-b from-black">
         <img
           className="w-64 h-24 object-contain"
           src={netflixLogo}
