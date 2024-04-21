@@ -13,7 +13,7 @@ const Browse = () => {
   useTopRatedMovies();
 
   return (
-    <div>
+    <div className={`${!showGPTSearch && "mt-[-100px]"}`}>
       {showGPTSearch ? (
         <GPTSearch />
       ) : (
