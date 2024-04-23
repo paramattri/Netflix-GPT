@@ -15,7 +15,7 @@ const GPTMovieSuggestions = () => {
           <MovieList
             key={movieName}
             title={movieName}
-            movies={gptRecommendedMovieResults[index]}
+            movies={gptRecommendedMovieResults[index].slice(0, 7)}
           />
         ))}
       </div>
