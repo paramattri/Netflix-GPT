@@ -51,7 +51,11 @@ const Header = () => {
           alt="Background"
         />
       )}
-      <div className="px-3 pt-1 z-10 relative flex justify-between items-center bg-gradient-to-b from-black">
+      <div
+        className={`px-3 pt-1 z-10 relative flex justify-between items-center bg-gradient-to-b from-black ${
+          user && !showGPTSearchView && "bg-black md:bg-transparent"
+        } `}
+      >
         <img
           className="w-64 h-24 object-contain"
           src={netflixLogo}

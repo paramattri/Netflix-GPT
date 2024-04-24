@@ -87,7 +87,7 @@ const Login = () => {
 
   return (
     <div className="relative flex justify-center">
-      <div className="flex flex-col w-2/6 bg-black/75 px-[68px] pt-[60px] rounded-[4px]">
+      <div className="flex flex-col  md:w-2/6 bg-black/75 px-[68px] pt-[60px] rounded-[4px] mt-32 md:mt-0">
         <p className="text-white mb-7 text-[32px] font-medium">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </p>

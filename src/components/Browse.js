@@ -15,7 +15,7 @@ const Browse = () => {
   useUpcomingMovies();
 
   return (
-    <div className={`${!showGPTSearch && "mt-[-100px]"}`}>
+    <div className={`${!showGPTSearch && "md:mt-[-100px]"}`}>
       {showGPTSearch ? (
         <GPTSearch />
       ) : (
